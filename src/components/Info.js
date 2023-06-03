@@ -18,8 +18,8 @@ class Info extends Component {
         <label htmlFor="email">Email:</label>
         <input id="email" type="email" name="email"></input>
 
-        <label htmlFor="pNumber">Phone Number:</label>
-        <input id="pNumber" type="tel" name="pNumber"></input>
+        <label htmlFor="phone">Phone Number:</label>
+        <input id="phone" type="tel" name="phone"></input>
       </>
     );
   }
