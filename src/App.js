@@ -7,6 +7,19 @@ import Experience from './components/Experience';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      school: '',
+      subject: '',
+      date: '',
+      company: '',
+      position: '',
+      from: '',
+      to: '',
+    };
   }
 
   render() {
@@ -17,7 +30,7 @@ class App extends Component {
           <Info />
           <Education />
           <Experience />
-          <button>Create</button>
+          <button type="submit">Create</button>
         </form>
       </div>
     );
