@@ -12,8 +12,8 @@ class Education extends Component {
         <label htmlFor="school">School:</label>
         <input id="school" type="text" name="school"></input>
 
-        <label htmlFor="study">Field of study:</label>
-        <input id="study" type="text" name="study"></input>
+        <label htmlFor="subject">Subject:</label>
+        <input id="subject" type="text" name="subject"></input>
 
         <label htmlFor="date">Date of study:</label>
         <input id="date" type="text" name="date"></input>
