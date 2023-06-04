@@ -1,8 +1,11 @@
 import { Component } from 'react';
-
 class Resume extends Component {
   constructor(props) {
     super(props);
+    this.renderGeneralInfo = this.renderGeneralInfo.bind(this);
+    this.renderEducation = this.renderEducation.bind(this);
+    this.renderExperience = this.renderExperience.bind(this);
+    this.renderResume = this.renderResume.bind(this);
   }
 
   renderGeneralInfo = () => {
