@@ -1,12 +1,14 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Info from './components/Info.js';
-import Education from './components/Education';
-import Experience from './components/Experience';
+import Education from './components/Education.js';
+import Experience from './components/Experience.js';
+import Resume from './components/Resume.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       firstName: '',
       lastName: '',
@@ -22,6 +24,10 @@ class App extends Component {
     };
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="App">
@@ -30,7 +36,10 @@ class App extends Component {
           <Info />
           <Education />
           <Experience />
-          <button type="submit">Create</button>
+          <button type="submit" onClick={this.handleSubmit}>
+            Create
+          </button>
+          <Resume />
         </form>
       </div>
     );
