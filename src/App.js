@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderResume = this.renderResume.bind(this);
     this.state = {
       firstName: '',
       lastName: '',
@@ -24,8 +25,41 @@ class App extends Component {
     };
   }
 
+  renderResume = () => {
+    return (
+      <>
+        <Resume state={this.state} />
+      </>
+    );
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const school = document.getElementById('school').value;
+    const subject = document.getElementById('subject');
+    const date = document.getElementById('date').value;
+    const company = document.getElementById('company');
+    const position = document.getElementById('position').value;
+    const from = document.getElementById('from');
+    const to = document.getElementById('to');
+    this.setState({
+      firstName,
+      lastName,
+      email,
+      phone,
+      school,
+      subject,
+      date,
+      company,
+      position,
+      from,
+      to,
+    });
+    this.renderResume();
   };
 
   render() {
@@ -33,14 +67,21 @@ class App extends Component {
       <div className="App">
         <h1>CV App</h1>
         <form>
-          <Info />
-          <Education />
-          <Experience />
-          <button type="submit" onClick={this.handleSubmit}>
+          <Info state={this.state} />
+          <Education state={this.state} />
+          <Experience state={this.state} />
+
+          <button
+            type="submit"
+            onClick={(e) => {
+              this.handleSubmit(e);
+              this.renderResume();
+            }}
+          >
             Create
           </button>
-          <Resume />
         </form>
+        {this.renderResume()}
       </div>
     );
   }
