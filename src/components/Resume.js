@@ -2,38 +2,26 @@ import { Component } from 'react';
 class Resume extends Component {
   constructor(props) {
     super(props);
+    this.state = this.props.state;
     this.renderGeneralInfo = this.renderGeneralInfo.bind(this);
-    this.renderEducation = this.renderEducation.bind(this);
-    this.renderExperience = this.renderExperience.bind(this);
     this.renderResume = this.renderResume.bind(this);
   }
 
   renderGeneralInfo = () => {
-    const firstNameValue = document.getElementById('firstName').value;
-    const lastNameValue = document.getElementById('lastName').value;
-    const emailValue = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-  }
+    return (
+      <section>
+        <h3>{this.props.state.firstName}</h3>
+        <h3>{this.props.state.lastName}</h3>
+        <p>{this.props.state.email}</p>
+        <p>{this.props.state.phone}</p>
+      </section>
+    );
+  };
 
-  renderEducation = () => {
-    const school = document.getElementById('school').value;
-    const subject = document.getElementById('subject').value;
-    const date = document.getElementById('date').value;
-  }
+  renderResume = () => {};
 
-  renderExperience = () => {
-    const company = document.getElementById('company').value;
-    const position = document.getElementById('position').value;
-    const from = document.getElementById('from').value;
-    const to = document.getElementById('to').value;
-  }
-
-  renderResume = () => { 
-
-};
-  
   render() {
-    return;
+    return <section>{this.renderGeneralInfo()}</section>;
   }
 }
 
