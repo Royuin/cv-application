@@ -3,6 +3,7 @@ import { Component } from 'react';
 class Info extends Component {
   constructor(props) {
     super(props);
+    this.state = this.props.state;
   }
 
   render() {
