@@ -40,12 +40,12 @@ class App extends Component {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const school = document.getElementById('school').value;
-    const subject = document.getElementById('subject');
+    const subject = document.getElementById('subject').value;
     const date = document.getElementById('date').value;
-    const company = document.getElementById('company');
+    const company = document.getElementById('company').value;
     const position = document.getElementById('position').value;
-    const from = document.getElementById('from');
-    const to = document.getElementById('to');
+    const from = document.getElementById('from').value;
+    const to = document.getElementById('to').value;
     this.setState({
       firstName,
       lastName,
