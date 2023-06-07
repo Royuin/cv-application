@@ -33,6 +33,15 @@ class App extends Component {
     );
   };
 
+  displayForm = () => {
+    const form = document.querySelector('form');
+    const editBtn = document.querySelector('.edit-button');
+    const resume = document.querySelector('.resume');
+    form.style.display = 'block';
+    editBtn.style.display = 'none';
+    resume.style.display = 'none';
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     const firstName = document.getElementById('firstName').value;
@@ -89,7 +98,9 @@ class App extends Component {
           </button>
         </form>
         {this.renderResume()}
-        <button className="edit-button">Edit</button>
+        <button className="edit-button" onClick={this.displayForm}>
+          Edit
+        </button>
       </div>
     );
   }
