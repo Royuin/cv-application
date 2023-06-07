@@ -60,6 +60,13 @@ class App extends Component {
       to,
     });
     this.renderResume();
+
+    const form = document.querySelector('form');
+    const editBtn = document.querySelector('.edit-button');
+    const resume = document.querySelector('.resume');
+    form.style.display = 'none';
+    editBtn.style.display = 'block';
+    resume.style.display = 'block';
   };
 
   render() {
@@ -82,6 +89,7 @@ class App extends Component {
           </button>
         </form>
         {this.renderResume()}
+        <button className="edit-button">Edit</button>
       </div>
     );
   }
