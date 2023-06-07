@@ -40,7 +40,7 @@ class Resume extends Component {
 
   render() {
     return (
-      <section>
+      <section className="resume">
         {this.renderGeneralInfo()}
         {this.renderExperience()}
         {this.renderEducation()}
