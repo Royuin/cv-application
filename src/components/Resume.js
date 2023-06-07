@@ -3,8 +3,6 @@ class Resume extends Component {
   constructor(props) {
     super(props);
     this.state = this.props.state;
-    this.renderGeneralInfo = this.renderGeneralInfo.bind(this);
-    this.renderExperience = this.renderExperience.bind(this);
   }
 
   renderGeneralInfo = () => {
@@ -29,11 +27,23 @@ class Resume extends Component {
     );
   };
 
+  renderEducation = () => {
+    return (
+      <section>
+        <h3>Education:</h3>
+        <h4>{this.props.state.school}</h4>
+        <h5>{this.props.state.subject}</h5>
+        <p>{this.props.state.date}</p>
+      </section>
+    );
+  };
+
   render() {
     return (
       <section>
         {this.renderGeneralInfo()}
         {this.renderExperience()}
+        {this.renderEducation()}
       </section>
     );
   }
