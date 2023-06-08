@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import '../styles/Resume.css';
+
 class Resume extends Component {
   constructor(props) {
     super(props);
@@ -7,29 +9,31 @@ class Resume extends Component {
 
   renderGeneralInfo = () => {
     return (
-      <section>
-        <h3>{this.props.state.firstName}</h3>
-        <h3>{this.props.state.lastName}</h3>
-        <p>{this.props.state.email}</p>
-        <p>{this.props.state.phone}</p>
+      <section className="general-info">
+        <h2 className="name">
+          {this.props.state.firstName} {this.props.state.lastName}
+        </h2>
+        <p className="email">{this.props.state.email}</p>
+        <p className="phone">{this.props.state.phone}</p>
       </section>
     );
   };
 
   renderExperience = () => {
     return (
-      <section>
-        <h3>{this.props.state.company}</h3>
-        <h4>{this.props.state.position}</h4>
-        <p>{this.props.state.from}</p>
-        <p>{this.props.state.to}</p>
+      <section className="experience">
+        <h3>Work Experience</h3>
+        <h4>{this.props.state.company}</h4>
+        <h5>{this.props.state.position}</h5>
+        <p>From: {this.props.state.from}</p>
+        <p>To: {this.props.state.to}</p>
       </section>
     );
   };
 
   renderEducation = () => {
     return (
-      <section>
+      <section className="education">
         <h3>Education:</h3>
         <h4>{this.props.state.school}</h4>
         <h5>{this.props.state.subject}</h5>
