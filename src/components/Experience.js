@@ -6,10 +6,9 @@ class Experience extends Component {
     this.state = this.props.state;
   }
 
-  render() {
+  renderInputs = () => {
     return (
-      <>
-        <h2>Experience</h2>
+      <li>
         <label htmlFor="company">Company name:</label>
         <input id="company" type="text" name="company"></input>
 
@@ -21,6 +20,16 @@ class Experience extends Component {
 
         <label htmlFor="to">To:</label>
         <input id="to" type="tel" name="to"></input>
+      </li>
+    );
+  };
+
+  render() {
+    return (
+      <>
+        <h2>Experience</h2>
+        {this.renderInputs()}
+        <button type="button">Add</button>
       </>
     );
   }
