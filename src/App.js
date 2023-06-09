@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import Info from './components/Info.js';
 import Education from './components/Education.js';
 import Experience from './components/Experience.js';
@@ -37,17 +37,26 @@ class App extends Component {
     const form = document.querySelector('form');
     const editBtn = document.querySelector('.edit-button');
     const resume = document.querySelector('.resume');
-    form.style.display = 'block';
+    form.style.display = 'grid';
     editBtn.style.display = 'none';
     resume.style.display = 'none';
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  setInfoState = () => {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
+    this.setState({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
     const school = document.getElementById('school').value;
     const subject = document.getElementById('subject').value;
     const date = document.getElementById('date').value;
@@ -55,11 +64,8 @@ class App extends Component {
     const position = document.getElementById('position').value;
     const from = document.getElementById('from').value;
     const to = document.getElementById('to').value;
+
     this.setState({
-      firstName,
-      lastName,
-      email,
-      phone,
       school,
       subject,
       date,
@@ -68,6 +74,8 @@ class App extends Component {
       from,
       to,
     });
+    this.setInfoState();
+
     this.renderResume();
 
     const form = document.querySelector('form');
@@ -75,7 +83,7 @@ class App extends Component {
     const resume = document.querySelector('.resume');
     form.style.display = 'none';
     editBtn.style.display = 'block';
-    resume.style.display = 'block';
+    resume.style.display = 'grid';
   };
 
   render() {
