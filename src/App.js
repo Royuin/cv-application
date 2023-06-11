@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderResume = this.renderResume.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
     this.state = {
       firstName: '',
       lastName: '',
@@ -22,6 +23,7 @@ class App extends Component {
       position: '',
       from: '',
       to: '',
+      jobs: [],
     };
   }
 
@@ -60,22 +62,12 @@ class App extends Component {
     const school = document.getElementById('school').value;
     const subject = document.getElementById('subject').value;
     const date = document.getElementById('date').value;
-    const company = document.getElementById('company').value;
-    const position = document.getElementById('position').value;
-    const from = document.getElementById('from').value;
-    const to = document.getElementById('to').value;
-
     this.setState({
       school,
       subject,
       date,
-      company,
-      position,
-      from,
-      to,
     });
     this.setInfoState();
-
     this.renderResume();
 
     const form = document.querySelector('form');
@@ -86,6 +78,19 @@ class App extends Component {
     resume.style.display = 'grid';
   };
 
+  handleAdd = () => {
+    const job = {
+      company: '',
+      position: '',
+      from: '',
+      to: '',
+      index: this.state.jobs.length,
+    };
+    this.setState({
+      jobs: this.state.jobs.concat(job),
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -93,7 +98,10 @@ class App extends Component {
         <form>
           <Info state={this.state} />
           <Education state={this.state} />
-          <Experience state={this.state} />
+          <Experience state={this.state} handleAdd={this.handleAdd} />
+          <button onClick={this.handleAdd} type="button">
+            Add Experience
+          </button>
 
           <button
             type="submit"
