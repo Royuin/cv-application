@@ -20,15 +20,18 @@ class Resume extends Component {
   };
 
   renderExperience = () => {
-    return (
-      <section className="experience">
-        <h3>Work Experience</h3>
-        <h4>{this.props.state.company}</h4>
-        <h5>{this.props.state.position}</h5>
-        <p>From: {this.props.state.from}</p>
-        <p>To: {this.props.state.to}</p>
-      </section>
-    );
+    const jobItems = this.props.state.jobs.map((job) => {
+      return (
+        <li key={job.index} id={job.index}>
+          <h4>{job.company}</h4>
+          <h5>{job.position}</h5>
+          <p>From: {job.from}</p>
+          <p>To: {job.to}</p>
+        </li>
+      );
+    }); 
+    return <ul>{jobItems}</ul>;
+
   };
 
   renderEducation = () => {
@@ -46,7 +49,10 @@ class Resume extends Component {
     return (
       <section className="resume">
         {this.renderGeneralInfo()}
-        {this.renderExperience()}
+        <section>
+          <h3>Work Experience: </h3>
+          {this.renderExperience()}
+        </section>
         {this.renderEducation()}
       </section>
     );
