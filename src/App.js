@@ -23,7 +23,7 @@ class App extends Component {
       position: '',
       from: '',
       to: '',
-      jobs: [],
+      jobs: [{company: '', position: '', from: '', to: '', index: 0},],
     };
   }
 
@@ -57,6 +57,25 @@ class App extends Component {
     });
   };
 
+  setJobsState = () => {
+    const jobs = this.state.jobs.map((job) => {
+      const company = document.getElementById('company' + job.index).value;
+      const position = document.getElementById('position' + job.index).value;
+      const from = document.getElementById('from' + job.index).value;
+      const to = document.getElementById('to' + job.index).value;
+      return {
+        company,
+        position,
+        from,
+        to,
+        index: job.index,
+      };
+    });
+    this.setState({
+      jobs: jobs,
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     const school = document.getElementById('school').value;
@@ -68,6 +87,7 @@ class App extends Component {
       date,
     });
     this.setInfoState();
+    this.setJobsState();
     this.renderResume();
 
     const form = document.querySelector('form');
