@@ -53,6 +53,9 @@ form > ul > :last-child {
   border: none;
 }
 
+form > ul > li> button {
+  margin-top: 8px;
+}
 
 button {
   background-color: var(--soft-black);
