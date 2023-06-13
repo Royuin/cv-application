@@ -4,8 +4,18 @@ class Experience extends Component {
   constructor(props) {
     super(props);
     this.state = this.props.state;
-    this.handleAdd = this.props.handleAdd.bind(this);
+    this.handleJobDelete = this.props.handleJobDelete.bind(this);
   }
+
+  removeJobBtn = (index) => {
+    return (
+      <button type="button" onClick={() => { 
+        this.props.handleJobDelete(index); 
+      }}>
+        Remove
+      </button>
+    );
+  };
 
   renderInputs = () => {
     const newJobs = this.props.state.jobs.map((job) => {
@@ -14,24 +24,22 @@ class Experience extends Component {
         <li id={job.index} key={job.index}>
           <label htmlFor="company">Company name:</label>
           <input
-            id={'company' +  index}
+            id={'company' + index}
             type="text"
             name="company"
             defaultValue={job.company}
           ></input>
 
           <label htmlFor="position">Position title:</label>
-          <input
-            id={'position' + index}
-            type="text"
-            name="position"
-          ></input>
+          <input id={'position' + index} type="text" name="position"></input>
 
           <label htmlFor="from">From:</label>
           <input id={'from' + index} type="tel" name="from"></input>
 
           <label htmlFor="to">To:</label>
           <input id={'to' + index} type="tel" name="to"></input>
+
+          {this.removeJobBtn(index)}
         </li>
       );
     });
