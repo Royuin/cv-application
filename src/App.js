@@ -11,6 +11,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderResume = this.renderResume.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleJobDelete = this.handleJobDelete.bind(this);
     this.state = {
       firstName: '',
       lastName: '',
@@ -23,7 +24,7 @@ class App extends Component {
       position: '',
       from: '',
       to: '',
-      jobs: [{company: '', position: '', from: '', to: '', index: 0},],
+      jobs: [{ company: '', position: '', from: '', to: '', index: 0 }],
     };
   }
 
@@ -111,6 +112,13 @@ class App extends Component {
     });
   };
 
+  handleJobDelete = (index) => {
+    const updatedJobs = this.state.jobs.filter((job) => job.index !== index);
+    this.setState({
+      jobs: updatedJobs,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -118,7 +126,10 @@ class App extends Component {
         <form>
           <Info state={this.state} />
           <Education state={this.state} />
-          <Experience state={this.state} handleAdd={this.handleAdd} />
+          <Experience
+            state={this.state}
+            handleJobDelete={this.handleJobDelete}
+          />
           <button onClick={this.handleAdd} type="button">
             Add Experience
           </button>
