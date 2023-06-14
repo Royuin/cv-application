@@ -4,6 +4,7 @@ import Info from './components/Info.js';
 import Education from './components/Education.js';
 import Experience from './components/Experience.js';
 import Resume from './components/Resume.js';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
       position: '',
       from: '',
       to: '',
-      jobs: [{ company: '', position: '', from: '', to: '', index: 0 }],
+      jobs: [{ company: '', position: '', from: '', to: '', id: uniqid(),}],
     };
   }
 
@@ -60,16 +61,16 @@ class App extends Component {
 
   setJobsState = () => {
     const jobs = this.state.jobs.map((job) => {
-      const company = document.getElementById('company' + job.index).value;
-      const position = document.getElementById('position' + job.index).value;
-      const from = document.getElementById('from' + job.index).value;
-      const to = document.getElementById('to' + job.index).value;
+      const company = document.getElementById('company' + job.id).value;
+      const position = document.getElementById('position' + job.id).value;
+      const from = document.getElementById('from' + job.id).value;
+      const to = document.getElementById('to' + job.id).value;
       return {
         company,
         position,
         from,
         to,
-        index: job.index,
+        id: job.id
       };
     });
     this.setState({
@@ -88,7 +89,7 @@ class App extends Component {
       date,
     });
     this.setInfoState();
-    this.setJobsState();
+   this.setJobsState();
     this.renderResume();
 
     const form = document.querySelector('form');
@@ -105,15 +106,15 @@ class App extends Component {
       position: '',
       from: '',
       to: '',
-      index: this.state.jobs.length,
+      id: uniqid(),
     };
     this.setState({
       jobs: this.state.jobs.concat(job),
     });
   };
 
-  handleJobDelete = (index) => {
-    const updatedJobs = this.state.jobs.filter((job) => job.index !== index);
+  handleJobDelete = (id) => {
+    const updatedJobs = this.state.jobs.filter((job) => job.id !== id);
     this.setState({
       jobs: updatedJobs,
     });
@@ -144,7 +145,7 @@ class App extends Component {
             Create
           </button>
         </form>
-        {this.renderResume()}
+        { this.renderResume()} 
         <button className="edit-button" onClick={this.displayForm}>
           Edit
         </button>
