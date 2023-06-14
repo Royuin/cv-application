@@ -1,9 +1,22 @@
+:root {
+  --soft-black: #18181b;
+  --subtle-black: #27272a;
+  --mid-tone: #71717a;
+  --mid-white: #d4d4d8;
+  --lighter-white: #f4f4f5;
+}
+
 .resume {
   display: none;
   align-items: center;
-  background-color: #f4f4f5;
+  background-color: var(--lighter-white);
   margin: 5% 15% 0 15%;
   padding: 3vw 6vw;
+  border: solid 2px var(--mid-tone);
+}
+
+body {
+  color: var(--soft-black);
 }
 
 .general-info {
@@ -12,7 +25,7 @@
   grid-template-areas:
     'user-name user-name user-name'
     'email . phone';
-  border-bottom: double 1rem #27272a;
+  border-bottom: double 1rem var(--subtle-black);
 }
 
 .name {
