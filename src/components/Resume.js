@@ -49,7 +49,7 @@ class Resume extends Component {
     return (
       <section className="resume">
         {this.renderGeneralInfo()}
-        <section>
+        <section className='experience'>
           <h3>Work Experience: </h3>
           {this.renderExperience()}
         </section>
