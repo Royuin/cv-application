@@ -39,7 +39,6 @@ form {
 
 form > h2 {
   width: 40%;
-  display: inline-block;
   border-bottom: double 5px var(--soft-black);
   margin-top: 4%;
   margin-bottom: 2%;
