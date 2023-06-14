@@ -22,7 +22,7 @@ class Resume extends Component {
   renderExperience = () => {
     const jobItems = this.props.state.jobs.map((job) => {
       return (
-        <li key={job.index} id={job.index}>
+        <li key={job.id} >
           <h4>{job.company}</h4>
           <h5>{job.position}</h5>
           <p>From: {job.from}</p>
