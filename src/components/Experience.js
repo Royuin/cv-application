@@ -7,10 +7,10 @@ class Experience extends Component {
     this.handleJobDelete = this.props.handleJobDelete.bind(this);
   }
 
-  removeJobBtn = (index) => {
+  removeJobBtn = (id) => {
     return (
       <button type="button" onClick={() => { 
-        this.props.handleJobDelete(index); 
+        this.props.handleJobDelete(id); 
       }}>
         Remove
       </button>
@@ -19,27 +19,26 @@ class Experience extends Component {
 
   renderInputs = () => {
     const newJobs = this.props.state.jobs.map((job) => {
-      const index = job.index;
       return (
-        <li id={job.index} key={job.index}>
+        <li key={job.id}>
           <label htmlFor="company">Company name:</label>
           <input
-            id={'company' + index}
+            id={'company' + job.id}
             type="text"
             name="company"
             defaultValue={job.company}
           ></input>
 
           <label htmlFor="position">Position title:</label>
-          <input id={'position' + index} type="text" name="position"></input>
+          <input id={'position' + job.id} type="text" name="position"></input>
 
           <label htmlFor="from">From:</label>
-          <input id={'from' + index} type="tel" name="from"></input>
+          <input id={'from' + job.id} type="tel" name="from"></input>
 
           <label htmlFor="to">To:</label>
-          <input id={'to' + index} type="tel" name="to"></input>
+          <input id={'to' + job.id} type="tel" name="to"></input>
 
-          {this.removeJobBtn(index)}
+          {this.removeJobBtn(job.id)}
         </li>
       );
     });
