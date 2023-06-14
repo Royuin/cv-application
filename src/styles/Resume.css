@@ -10,7 +10,7 @@
   display: none;
   align-items: center;
   background-color: var(--lighter-white);
-  margin: 5% 15% 0 15%;
+  margin: 5% 23% 0 23%;
   padding: 3vw 6vw;
   border: solid 2px var(--mid-tone);
 }
@@ -26,16 +26,20 @@ body {
     'user-name user-name user-name'
     'email . phone';
   border-bottom: double 1rem var(--subtle-black);
+  margin-bottom: 5%;
 }
 
 .name {
   grid-area: user-name;
+  margin-bottom: 2%;
 }
 
 .email {
   grid-area: email;
+  margin-bottom: 3%;
 }
 
 .phone {
   grid-area: phone;
+  margin-bottom: 3%;
 }
