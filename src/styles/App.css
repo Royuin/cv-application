@@ -1,7 +1,10 @@
 :root {
   --soft-black: #18181b;
+  --lighter-black: #27272a;
   --mid-white: #d4d4d8;
-  --lighter-white: #f4f4f5;
+  --lighter-tone: #f4f4f5;
+  --mid-tone: #71717a;
+  --lightest-tone: #fafafa;
 }
 
 * {
@@ -76,6 +79,11 @@ button {
   padding: 5px 0 5px 0;
   border-radius: 5px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--lighter-black);
+  color: var(--lightest-tone);
 }
 
 input {
