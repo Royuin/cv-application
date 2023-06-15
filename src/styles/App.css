@@ -10,6 +10,11 @@
   box-sizing: border-box; 
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   background-color: var(--mid-white);
   color: var(--soft-black);
