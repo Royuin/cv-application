@@ -23,10 +23,14 @@ class Resume extends Component {
     const jobItems = this.props.state.jobs.map((job) => {
       return (
         <li key={job.id} >
+          <div className='company-info'>
           <h4>{job.company}</h4>
           <h5>{job.position}</h5>
+          </div>
+          <div className='company-date'>
           <p>From: {job.from}</p>
           <p>To: {job.to}</p>
+          </div>
         </li>
       );
     }); 
