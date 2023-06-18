@@ -21,10 +21,6 @@ class App extends Component {
       school: '',
       subject: '',
       date: '',
-      company: '',
-      position: '',
-      from: '',
-      to: '',
       jobs: [{ company: '', position: '', from: '', to: '', id: uniqid(),}],
     };
   }
