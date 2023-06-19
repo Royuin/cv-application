@@ -10,7 +10,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderResume = this.renderResume.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleJobDelete = this.handleJobDelete.bind(this);
     this.state = {
@@ -24,14 +23,6 @@ class App extends Component {
       jobs: [{ company: '', position: '', from: '', to: '', id: uniqid(),}],
     };
   }
-
-  renderResume = () => {
-    return (
-      <>
-        <Resume state={this.state} />
-      </>
-    );
-  };
 
   displayForm = () => {
     const form = document.querySelector('form');
@@ -86,7 +77,6 @@ class App extends Component {
     });
     this.setInfoState();
    this.setJobsState();
-    this.renderResume();
 
     const form = document.querySelector('form');
     const editBtn = document.querySelector('.edit-button');
@@ -130,18 +120,16 @@ class App extends Component {
           <button onClick={this.handleAdd} type="button">
             Add Experience
           </button>
-
           <button
             type="submit"
             onClick={(e) => {
               this.handleSubmit(e);
-              this.renderResume();
             }}
           >
             Create
           </button>
         </form>
-        { this.renderResume()} 
+        <Resume state={this.state} />
         <button className="edit-button" onClick={this.displayForm}>
           Edit
         </button>
