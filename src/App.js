@@ -29,16 +29,16 @@ function App() {
   //     jobs: [{ company: '', position: '', from: '', to: '', id: uniqid(),}],
   //   };
 
-  // displayForm = () => {
-  //   const form = document.querySelector('form');
-  //   const editBtn = document.querySelector('.edit-button');
-  //   const resume = document.querySelector('.resume');
-  //   form.style.display = 'grid';
-  //   editBtn.style.display = 'none';
-  //   resume.style.display = 'none';
-  // };
+ function displayForm() {
+    const form = document.querySelector('form');
+    const editBtn = document.querySelector('.edit-button');
+    const resume = document.querySelector('.resume');
+    form.style.display = 'grid';
+    editBtn.style.display = 'none';
+    resume.style.display = 'none';
+  };
 
-  const setInfoState = () => {
+  function setInfoState() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -68,7 +68,7 @@ function App() {
   //   });
   // };
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     // const school = document.getElementById('school').value;
     // const subject = document.getElementById('subject').value;
@@ -109,20 +109,12 @@ function App() {
   //   });
   // };
 
-
-  // <Info  />
   // <Education  />
   // <Experience
   // />
   // <button type="button">
   //   Add Experience
   // </button>
-
-  // <Resume state={this.state} />
-  <button className="edit-button" onClick={this.displayForm}>
-    Edit
-  </button>
-
 
   return (
     <div className="App">
@@ -137,13 +129,16 @@ function App() {
         >
           Create
         </button>
-        <Resume 
+     </form>
+         <Resume 
           firstName={firstName}
           lastName={lastName}
           email={email}
           phone={phone}
         />
-      </form>
+  <button className="edit-button" onClick={displayForm}>
+    Edit
+  </button>
     </div>
   );
 
