@@ -13,8 +13,8 @@ function App() {
   const [phone, setPhone] = useState('');
   const [school, setSchool] = useState('');
   const [subject, setSubject] = useState('');
-  const [date, useDate] = useState('');
-  const [jobs, useJobs] = useState([{ company: '', position: '', from: '', to: '', id: uniqid(),}])
+  const [date, setDate] = useState('');
+  const [jobs, setJobs] = useState([{ company: '', position: '', from: '', to: '', id: uniqid(),}])
   // this.handleSubmit = this.handleSubmit.bind(this);
   //   this.handleAdd = this.handleAdd.bind(this);
   //   this.handleJobDelete = this.handleJobDelete.bind(this);
@@ -70,14 +70,13 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // const school = document.getElementById('school').value;
-    // const subject = document.getElementById('subject').value;
-    // const date = document.getElementById('date').value;
-    // this.setState({
-    //   school,
-    //   subject,
-    //   date,
-    // });
+    const school = document.getElementById('school').value;
+    const subject = document.getElementById('subject').value;
+    const date = document.getElementById('date').value;
+    setSchool(school);
+    setSubject(subject);
+    setDate(date);
+    
     setInfoState();
     // this.setJobsState();
 
@@ -121,6 +120,7 @@ function App() {
       <h1>CV App</h1>
       <form>
         <Info />
+        <Education />
         <button
           type="submit"
           onClick={(e) => {
@@ -135,6 +135,9 @@ function App() {
           lastName={lastName}
           email={email}
           phone={phone}
+          school={school}
+          subject={subject}
+          date={date}
         />
   <button className="edit-button" onClick={displayForm}>
     Edit
