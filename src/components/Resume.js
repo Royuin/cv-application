@@ -1,6 +1,6 @@
 import '../styles/Resume.css';
 
-export default function Resume ({firstName, lastName, email, phone, school, subject, date}) {
+export default function Resume ({firstName, lastName, email, phone, school, subject, date, jobs}) {
 
   function renderGeneralInfo () {
     return (
@@ -14,25 +14,25 @@ export default function Resume ({firstName, lastName, email, phone, school, subj
     );
   };
 
-  // renderExperience = () => {
-  //   const jobItems = this.props.state.jobs.map((job) => {
-  //     return (
-  //       <li key={job.id} >
-  //         <div className='company-info'>
-  //         <h4>{job.company}</h4>
-  //         <h5>{job.position}</h5>
-  //         </div>
-  //         <div className='company-date'>
-  //         <p>From: {job.from}</p>
-  //         <p>To: {job.to}</p>
-  //         </div>
-  //       </li>
-  //     );
-  //   }); 
-  //   return <ul>{jobItems}</ul>;
-  // };
+  function renderExperience() {
+    const jobItems = jobs.map((job) => {
+      return (
+        <li key={job.id} >
+          <div className='company-info'>
+            <h4>{job.company}</h4>
+            <h5>{job.position}</h5>
+          </div>
+          <div className='company-date'>
+            <p>From: {job.from}</p>
+            <p>To: {job.to}</p>
+          </div>
+        </li>
+      );
+    }); 
+    return <ul>{jobItems}</ul>;
+  };
 
-function renderEducation() {
+  function renderEducation() {
     return (
       <section className="education">
         <h3>Education:</h3>
@@ -49,6 +49,7 @@ function renderEducation() {
       {renderEducation()}
       <section className='experience'>
         <h3>Work Experience: </h3>
+        {renderExperience()}
       </section>
     </section>
   );
