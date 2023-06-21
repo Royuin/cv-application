@@ -1,7 +1,6 @@
-import { Component } from 'react';
 import '../styles/Resume.css';
 
-export default function Resume ({firstName, lastName, email, phone}) {
+export default function Resume ({firstName, lastName, email, phone, school, subject, date}) {
 
   function renderGeneralInfo () {
     return (
@@ -33,23 +32,21 @@ export default function Resume ({firstName, lastName, email, phone}) {
   //   return <ul>{jobItems}</ul>;
   // };
 
-  // renderEducation = () => {
-  //   return (
-  //     <section className="education">
-  //       <h3>Education:</h3>
-  //       <h4>{this.props.state.school}</h4>
-  //       <h5>{this.props.state.subject}</h5>
-  //       <p>{this.props.state.date}</p>
-  //     </section>
-  //   );
-  // };
-
-  // {this.renderExperience()}
-  // {this.renderEducation()}
+function renderEducation() {
+    return (
+      <section className="education">
+        <h3>Education:</h3>
+        <h4>{school}</h4>
+        <h5>{subject}</h5>
+        <p>{date}</p>
+      </section>
+    );
+  };
 
   return (
     <section className="resume">
       {renderGeneralInfo()}
+      {renderEducation()}
       <section className='experience'>
         <h3>Work Experience: </h3>
       </section>
