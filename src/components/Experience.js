@@ -1,24 +1,17 @@
-import { Component } from 'react';
+export default function Experience({jobs, handleJobDelete}) {
 
-class Experience extends Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.state;
-    this.handleJobDelete = this.props.handleJobDelete.bind(this);
-  }
-
-  removeJobBtn = (id) => {
+  function removeJobBtn(id) {
     return (
       <button type="button" onClick={() => { 
-        this.props.handleJobDelete(id); 
+        handleJobDelete(id); 
       }}>
         Remove
       </button>
     );
   };
 
-  renderInputs = () => {
-    const newJobs = this.props.state.jobs.map((job) => {
+  function renderInputs() {
+    const newJobs = jobs.map((job) => {
       return (
         <li key={job.id}>
           <label htmlFor="company">Company name:</label>
@@ -38,21 +31,17 @@ class Experience extends Component {
           <label htmlFor="to">To:</label>
           <input id={'to' + job.id} type="tel" name="to"></input>
 
-          {this.removeJobBtn(job.id)}
+          {removeJobBtn(job.id)}
         </li>
       );
     });
     return <ul>{newJobs}</ul>;
   };
 
-  render() {
-    return (
-      <>
-        <h2>Experience</h2>
-        {this.renderInputs()}
-      </>
-    );
-  }
+  return (
+    <>
+      <h2>Experience</h2>
+      {renderInputs()}
+    </>
+  );
 }
-
-export default Experience;
